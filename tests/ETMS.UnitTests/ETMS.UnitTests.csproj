@@ -20,6 +20,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\src\Modules\Tickets\ETMS.Tickets.Domain\ETMS.Tickets.Domain.csproj" />
+    <ProjectReference Include="..\..\src\Modules\Tickets\ETMS.Tickets.Application\ETMS.Tickets.Application.csproj" />
   </ItemGroup>
 
 </Project>
