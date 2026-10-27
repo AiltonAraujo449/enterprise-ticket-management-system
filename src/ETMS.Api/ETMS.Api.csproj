@@ -10,4 +10,9 @@
     <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="10.0.12" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Modules\Tickets\ETMS.Tickets.Application\ETMS.Tickets.Application.csproj" />
+    <ProjectReference Include="..\Modules\Tickets\ETMS.Tickets.Infrastructure\ETMS.Tickets.Infrastructure.csproj" />
+  </ItemGroup>
+
 </Project>
