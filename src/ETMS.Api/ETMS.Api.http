@@ -1,0 +1,6 @@
+@ETMS.Api_HostAddress = http://localhost:5016
+
+GET {{ETMS.Api_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

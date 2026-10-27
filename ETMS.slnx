@@ -1,0 +1,14 @@
+<Solution>
+  <Folder Name="/src/">
+    <Project Path="src/ETMS.Api/ETMS.Api.csproj" />
+  </Folder>
+  <Folder Name="/src/Modules/" />
+  <Folder Name="/src/Modules/Tickets/">
+    <Project Path="src/Modules/Tickets/ETMS.Tickets.Application/ETMS.Tickets.Application.csproj" />
+    <Project Path="src/Modules/Tickets/ETMS.Tickets.Domain/ETMS.Tickets.Domain.csproj" />
+    <Project Path="src/Modules/Tickets/ETMS.Tickets.Infrastructure/ETMS.Tickets.Infrastructure.csproj" />
+  </Folder>
+  <Folder Name="/tests/">
+    <Project Path="tests/ETMS.UnitTests/ETMS.UnitTests.csproj" />
+  </Folder>
+</Solution>
