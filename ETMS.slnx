@@ -9,6 +9,7 @@
     <Project Path="src/Modules/Tickets/ETMS.Tickets.Infrastructure/ETMS.Tickets.Infrastructure.csproj" />
   </Folder>
   <Folder Name="/tests/">
+    <Project Path="tests/ETMS.IntegrationTests/ETMS.IntegrationTests.csproj" />
     <Project Path="tests/ETMS.UnitTests/ETMS.UnitTests.csproj" />
   </Folder>
 </Solution>

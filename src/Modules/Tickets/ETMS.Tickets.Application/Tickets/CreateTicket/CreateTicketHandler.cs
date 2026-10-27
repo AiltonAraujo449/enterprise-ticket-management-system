@@ -6,10 +6,14 @@ namespace ETMS.Tickets.Application.Tickets.CreateTicket;
 public sealed class CreateTicketHandler
 {
     private readonly ITicketRepository _repository;
+    private readonly IUnitOfWork _unitOfWork;
 
-    public CreateTicketHandler(ITicketRepository repository)
+    public CreateTicketHandler(
+        ITicketRepository repository,
+        IUnitOfWork unitOfWork)
     {
         _repository = repository;
+        _unitOfWork = unitOfWork;
     }
 
     public async Task<Guid> HandleAsync(
@@ -24,6 +28,10 @@ public sealed class CreateTicketHandler
             ticket,
             cancellationToken);
 
+        await _unitOfWork.SaveChangesAsync(
+            cancellationToken);
+
         return ticket.Id;
     }
 }
+

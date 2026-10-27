@@ -10,7 +10,11 @@ public class CreateTicketHandlerTests
     public async Task HandleAsync_ShouldCreateTicket()
     {
         var repository = new FakeTicketRepository();
-        var handler = new CreateTicketHandler(repository);
+        var unitOfWork = new FakeUnitOfWork();
+
+        var handler = new CreateTicketHandler(
+            repository,
+            unitOfWork);
 
         var command = new CreateTicketCommand(
             "System unavailable");
@@ -22,6 +26,7 @@ public class CreateTicketHandlerTests
         Assert.NotNull(ticket);
         Assert.Equal("System unavailable", ticket.Title.Value);
         Assert.Equal(TicketStatus.Open, ticket.Status);
+        Assert.Equal(1, unitOfWork.SaveChangesCallCount);
     }
 
     private sealed class FakeTicketRepository : ITicketRepository
@@ -44,6 +49,19 @@ public class CreateTicketHandlerTests
             _tickets.TryGetValue(id, out var ticket);
 
             return Task.FromResult(ticket);
+        }
+    }
+
+    private sealed class FakeUnitOfWork : IUnitOfWork
+    {
+        public int SaveChangesCallCount { get; private set; }
+
+        public Task<int> SaveChangesAsync(
+            CancellationToken cancellationToken = default)
+        {
+            SaveChangesCallCount++;
+
+            return Task.FromResult(1);
         }
     }
 }
